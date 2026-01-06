@@ -1,0 +1,17 @@
+salary = float(input("Enter your slary:"))
+
+if salary <= 1000:
+    tax_rate = 0.20
+elif salary <= 2500:
+    tax_rate = 0.15
+else:
+    tax_rate = 0.10
+
+tax = salary * tax_rate
+take_home = salary - tax
+
+print(
+    "Your salary is", salary,
+    ", if which", tax,
+    "is taxand you take home", take_home
+)
