@@ -1,1 +1,64 @@
+names = []
+grades = []
 
+while True:
+    name = input("Enter student's name (or type STOP to finish): ")
+
+    if name.upper() == "STOP":
+        break
+
+    # Ensure score is a number
+    while True:
+        score_input = input("Enter test score (numbers only): ")
+        if score_input.isdigit():
+            score = int(score_input)
+            break
+        else:
+            print("Invalid input. Numbers only.")
+
+    if score >= 50:
+        print(name, "has PASSED")
+
+        if score >= 90:
+            grade = "A"
+        elif score >= 80:
+            grade = "B"
+        elif score >= 70:
+            grade = "C"
+        elif score >= 60:
+            grade = "D"
+        else:
+            grade = "E"
+    else:
+        print(name, "has FAILED")
+        grade = "F"
+
+    names.append(name)
+    grades.append(grade)
+    print("Grade:", grade)
+    print()
+
+# Combine student data
+students = list(zip(names, grades))
+
+# Menu: ODD / EVEN only
+while True:
+    choice = input("\nEnter an ODD number for Ascending OR EVEN number for Descending sorting: ")
+
+    if choice.isdigit():
+        choice = int(choice)
+
+        if choice % 2 == 1:  # Odd
+            students_sorted = sorted(students, key=lambda x: x[1])
+            print("\nStudents sorted by grade (Ascending):")
+            break
+
+        elif choice % 2 == 0:  # Even
+            students_sorted = sorted(students, key=lambda x: x[1], reverse=True)
+            print("\nStudents sorted by grade (Descending):")
+            break
+    print("Invalid input. Enter odd or even numbers only.")
+
+# Display sorted students
+for name, grade in students_sorted:
+    print(name, "-", grade)
