@@ -1,0 +1,10 @@
+blocks = int(input("Enter a number of blocks: "))
+
+layers = 0
+used_blocks = 0
+
+while used_blocks + (layers + 1) <= blocks:
+    layers = layers + 1
+    used_blocks = used_blocks + layers
+
+print("Number of layers:", layers)
