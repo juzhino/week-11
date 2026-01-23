@@ -1,0 +1,25 @@
+import random
+
+lottery_numbers = random.sample(range(1, 50), 6)
+
+user_numbers = []
+
+print("Enter 6 lottery numbers (1–49):")
+for i in range(6):
+    num = int(input(f"Number {i + 1}: "))
+    user_numbers.append(num)
+
+correct = 0
+for num in user_numbers:
+    if num in lottery_numbers:
+        correct += 1
+
+if correct == 0:
+    points = 0
+else:
+    points = 2 ** (correct - 1)
+
+print("\nLottery numbers:", lottery_numbers)
+print("Your numbers:", user_numbers)
+print("Correct numbers:", correct)
+print("Points earned:", points)
