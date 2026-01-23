@@ -1,0 +1,32 @@
+students = []
+grades = []
+
+n = int(input("How many students? "))
+
+for i in range(n):
+    name = input("Enter student's name: ")
+    score = int(input("Enter test score: "))
+
+    if score >= 90:
+        grade = "A"
+    elif score >= 80:
+        grade = "B"
+    elif score >= 70:
+        grade = "C"
+    elif score >= 60:
+        grade = "D"
+    elif score >= 50:
+        grade = "E"
+    else:
+        grade = "F"
+
+    students.append(name)
+    grades.append(grade)
+
+student_info = list(zip(students, grades))
+
+student_info.sort(key=lambda x: x[1])
+
+print("\nStudent Grades (Descending Order):")
+for name, grade in student_info:
+    print(f"{name} - {grade}")
