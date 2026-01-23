@@ -1,0 +1,40 @@
+names = []
+scores = []
+grades = []
+
+n = int(input("How many students? "))
+
+for i in range(n):
+    name = input("Enter student's name: ")
+    score = int(input("Enter test score: "))
+
+    names.append(name)
+    scores.append(score)
+
+    if score >= 50:
+        if score >= 90:
+            grade = "A"
+        elif score >= 80:
+            grade = "B"
+        elif score >= 70:
+            grade = "C"
+        elif score >= 60:
+            grade = "D"
+        else:
+            grade = "E"
+    else:
+        grade = "F"
+
+    grades.append(grade)
+
+highest_score = scores[0]
+highest_index = 0
+
+for i in range(1, n):
+    if scores[i] > highest_score:
+        highest_score = scores[i]
+        highest_index = i
+
+print("\nCongratulations! The following student got the highest grade in the class!")
+print(names[highest_index], "-", grades[highest_index])
+print("Highest Score:", highest_score)
